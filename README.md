@@ -12,6 +12,20 @@ Official repo using TensorFlow 1.x: https://github.com/NVlabs/stylegan2
 
 The Conv2D op currently does not support grouped convolutions on the CPU. In consequence, when running with CPU, batch size should be 1.
 
+## Chernoff face charts
+
+`chernoff_chart.py` produces Chernoff-style plots using photorealistic faces from
+the StyleGAN2 generator.  Supply a matrix of attribute values and the
+corresponding attribute names and the script renders a grid of faces.
+
+```python
+from chernoff_chart import chernoff_chart
+
+data = [[0.0, 1.0], [-1.0, 0.5]]
+attributes = ["yaw", "age"]
+chernoff_chart(data, attributes, out_path="faces.png", weights="ffhq")
+```
+
 Download network parameters to *weights* folder manually https://drive.google.com/drive/folders/1rhuvN90EGsRhvjQq5gio8VYw7f0LojaK?usp=sharing, or simpy run *download.py* script located in *weights* folder.
 
 ```
